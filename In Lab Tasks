@@ -1,1 +1,223 @@
+Task 01 
+Write a C program to print the following sequence using a loop: 
+2 4 6 8 10 12 14 16 18 20 
+Code: 
+#include <stdio.h>
+int main (void)
+{
+	int i;
+	for ( i = 0; i <= 20; i++)
+	{
+		if(i % 2 == 0)
+		{
+			printf("%d\t",i);
+		}
+	}
+}
+Task 02 
+Write a C program to print the following sequence using a loop: 
+81 64 49 36 25 16 
+Code:
+#include <stdio.h>
+int main (void)
+{
+	int i;
+	for ( i = 9; i >= 4; i--)
+	{
+		printf("%d\t",i * i);
+	}
+}
+Task 03 
+Write a C program that repeatedly asks the user to enter a number. Continue taking numbers until  the user enters 0. For every number entered, calculate its cube and display the result. When the  user enters 0, stop the process. 
+Code:
+#include <stdio.h>
+
+int main(void)
+{
+	int i = 1;
+	while (i != 0)
+	{
+		printf("Enter Number:\t");
+		scanf("%d", &i);
+		if (i != 0)
+		{
+			printf("The cube of the number entered is:\t %d\n", i*i*i);
+		}
+		else 
+		{
+			printf("User Entered Number 0");
+		}
+	}
+}
+Task 04 
+Write a C program that asks the user to enter the marks of a student. After entering the marks, ask  the user whether they want to enter marks for another student, where 1 means Yes and 0 means  No. Continue taking marks as long as the user chooses 1. At the end, display the marks entered  and the total number of students. 
+Code:
+#include <stdio.h>
+int main (void)
+{
+	int Marks, Choice = 1, Count = 0;
+	
+	do
+	{
+		printf("\nEnter marks of the subject:\t");
+		scanf("%d",&Marks);
+		
+		Count ++;
+		
+		printf("\nDo you want to enter marks of another student? ( 1 = Yes & 0 = No )\t");
+		scanf("%d",&Choice);
+	}
+	
+	while (Choice == 1);
+	{
+		printf("\nThe total number of students are:\t %d",Count);
+	}
+}
+Task 05 
+A weather application records the temperature for 7 days. Write a C program that asks the user to  enter the temperature for each day. After taking all 7 temperature values, calculate the total  temperature and count how many temperatures are greater than 100. At the end, display the total  temperature and the number of temperatures greater than 100. 
+Code:
+#include <stdio.h>
+
+int main(void)
+{
+    int Temp, Count = 0, Sum = 0, TempGT100 = 0;
+
+    do
+    {
+        printf("Enter temperature of the day:\t");
+        scanf("%d", &Temp);
+        Count++;
+        Sum = Sum + Temp;
+
+        if (Temp >= 100)
+        {
+            TempGT100++;
+        }
+    } while (Count < 7);
+
+    printf("\nThe total of all temperatures is:\t%d\n", Sum);
+    printf("\nDays with temperature >= 100:\t%d\n", TempGT100);
+
+    return 0;
+}
+Task 06 
+A student wants to save money every month. Write a C program that repeatedly asks the student  to enter the amount saved. Continue taking amounts as long as the entered amount is greater than  0. Add each amount to the total savings and count the number of deposits. Stop when the user  enters 0 or a negative value. At the end, display the total savings and the number of deposits. 
+Code:
+#include <stdio.h>
+
+int main(void)
+{
+    int Money, Total_Savings = 0, Count = 0;
+    
+	do
+	{
+		printf("Enter money saved each month: \t");
+		scanf("%d",&Money);
+		Total_Savings = Total_Savings + Money;
+	}
+	while ( Money > 0 );
+	{
+		Count ++;
+		printf("\nThe total savings are: \t%d",Total_Savings);
+		printf("\nThe number of deposits are: \t%d",Count);
+	}
+}
+OR
+#include <stdio.h>
+
+int main(void)
+{
+    int Money, Amount = 0, Total_Savings = 0, Count = 0;
+
+    printf("Enter money saved each month:\t");
+    scanf("%d", &Money);
+
+    while (Money > 0)
+    {
+        Amount = Amount + Money;
+        Total_Savings = Amount;
+        Count++;
+
+        printf("Enter money saved each month:\t");
+        scanf("%d", &Money);
+    }
+
+    printf("\nThe total savings are:\t%d", Total_Savings);
+    printf("\nThe number of deposits are:\t%d\n", Count);
+}
+Task 07 
+A customer is ordering food from a restaurant. Write a C program that asks the customer to enter  the name of a food item and its price, then adds the price to the total bill. After each order, ask the  customer whether they want to order another item, where 1 means Yes and 0 means No. If the  customer enters 1, take the name and price of another item; if the customer enters 0, stop the  ordering process. At the end, display the total bill and the number of items ordered.
+Code:
+#include <stdio.h>
+int main (void)
+{
+	char Name;
+	int Choice, Count = 0;
+	float Price, Bill = 0;
+	
+	do
+	{
+		printf("\nEnter Food Item Name: \t");
+		scanf(" %c", &Name);
+		
+		printf("\nEnter Food Item Price: \t");
+		scanf("%f", &Price);
+		
+		Bill = Bill + Price;
+		Count ++;
+		
+		printf("\nDo you want to order another item? ( 1 = Yes & 0 = No ): \t");
+		scanf("%d",&Choice);
+	} 
+	while ( Choice == 1);
+	{
+		printf("\nYour Total Bill Is: \t %.2f\n",Bill);
+		printf("\nTotal Number Of Items Ordered Is: \t %d",Count);
+	}
+}
+
+Task 08 
+A company has 6 employees. Write a C program that asks the user to enter the salary of each  employee and stores all 6 salaries in an array. After taking all salaries, use a loop to display the  salary of each employee and count how many employees have a salary greater than 50,000. At the  end, display all employee salaries and the number of employees whose salary is greater than  50,000.
+Code:
+#include <stdio.h>
+int main (void)
+{
+	float Salary[6];
+	int Employee, Count = 0;
+	
+	for ( Employee = 0; Employee < 6; Employee++)
+	{
+		printf("Enter Salary Of The Employee:\t");
+		scanf("%f",&Salary[Employee]);
+	}
+	for ( Employee = 0; Employee < 6; Employee++)
+	{
+		printf("\nEmployee %d: \t %.2f", Employee + 1, Salary[Employee]);
+		if (Salary[Employee] > 50000)
+		{
+			Count ++;
+		}
+	}
+		printf("\nEmployees with salary greater than 50000: \t %d\n",Count);
+}
+OR
+#include <stdio.h>
+int main(void)
+{
+	int Count = 0, Employee;
+	float Salary[6];
+
+for ( Employee = 0; Employee < 6; Employee++)
+{
+	printf("Enter Salary Of The Employee:\t");
+	scanf("%f",&Salary[Employee]);
+
+	printf("Employee %d: \t %.2f\n", Employee + 1, Salary[Employee]);
+	if (Salary[Employee] > 50000)
+	{
+		Count ++;
+		printf("\nEmployees with salary greater than 50000: \t %d\n",Count);
+	}
+}
+}
 
